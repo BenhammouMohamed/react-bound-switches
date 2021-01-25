@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Checkbox extends Component {
-  render() {
-    return (
-      <input type="checkbox" onChange={this.props.handleChange} checked={this.props.active} />
-    )
-  }
+function Checkbox(props) {
+  return (
+    <input type="checkbox" onChange={props.handleChange} checked={props.active} />
+  )
 }
 
 export default Checkbox;

@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Checkbox from './Checkbox';
 import Button from './Button';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: true
-    };
-    this.handleChange = this.handleChange.bind(this);
+function App() {
+  const [state, setState] = useState({
+    active: true
+  })
+  const handleChange = () => {
+    setState({
+      active: !state.active
+    })
   }
 
-  handleChange() {
-    this.setState({
-      active: !this.state.active
-    });
-  }
-
-  render () {
-    return (
-      <div className="App">
-        <Checkbox active={this.state.active} handleChange={this.handleChange} />
-        <Button active={this.state.active} handleChange={this.handleChange} />
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Checkbox active={state.active} handleChange={handleChange} />
+      <Button active={state.active} handleChange={handleChange} />
+    </div>
+  )
 }
-
-export default App;
+export default App
